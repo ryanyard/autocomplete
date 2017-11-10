@@ -1,2 +1,0 @@
-# autocomplete
-jquery python autocomplete
