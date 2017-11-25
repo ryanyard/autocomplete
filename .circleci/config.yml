@@ -34,4 +34,4 @@ jobs:
           #key: v1-dependencies-{{ checksum "composer.json" }}
         
       # run deploy
-      - run: ./deploy.sh
+      - run: gcloud app deploy app.yaml --promote
