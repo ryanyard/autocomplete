@@ -34,4 +34,25 @@ jobs:
           #key: v1-dependencies-{{ checksum "composer.json" }}
         
       # run deploy
-      - run: gcloud app deploy app.yaml --promote
+      #- run: gcloud app deploy app.yaml --promote
+
+   deploy-job:
+       docker:
+         - image: my-image
+       working_directory: ~/repo 
+       steps:
+         - run:
+             name: Deploy Master to GAE
+             command: sudo ./deploy.sh
+               
+    workflows:
+      version: 2
+      build-deploy:
+        jobs:
+          - build
+          - deploy-job:
+              requires:
+                - build
+              filters:
+                branches:
+                  only: master
