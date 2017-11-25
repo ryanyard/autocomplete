@@ -21,8 +21,8 @@ jobs:
       - run:
           name: Authenticate with Google Cloud
           command: |
-            echo $CLIENT_SECRET | base64 -d > ~/repo/client-secret.json
-            gcloud auth activate-service-account --key-file=~/repo/client-secret.json
+            echo $CLIENT_SECRET | base64 -d > /home/circleci/client-secret.json
+            gcloud auth activate-service-account --key-file=/home/circleci/client-secret.json
       - run:
           name: Deploy compojure-app to Google App Engine
           command: |
