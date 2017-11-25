@@ -14,7 +14,7 @@ jobs:
           - master
     docker:
       - image: google/cloud-sdk:alpine
-    working_directory: ~/repo
+    working_directory: /home/circleci/auto
     steps:
       - checkout
 
@@ -24,7 +24,7 @@ jobs:
             echo $CLIENT_SECRET | base64 -d > /home/circleci/client-secret.json
             gcloud auth activate-service-account --key-file=/home/circleci/client-secret.json
       - run:
-          name: Deploy compojure-app to Google App Engine
+          name: Deploy autocomplete to Google App Engine
           command: |
             gcloud config set project autocomplete-185121
             gcloud app deploy
