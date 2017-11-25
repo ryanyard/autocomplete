@@ -25,8 +25,8 @@ dependencies:
     - echo $CLIENT_SECRET | base64 --decode > ${HOME}/client-secret.json
     - sed  s/YOUR-API-KEY/$API_KEY/ api_key.py.sample > api_key.py
     # vendor our dependencies
-    - mkdir -p lib
-    - pip install -r requirements.txt -t lib
+    #- mkdir -p lib
+    #- pip install -r requirements.txt -t lib
     # Make sure gcloud is up to date
     - gcloud --quiet components update app
     # authenticate gcloud
@@ -44,6 +44,6 @@ deployment:
         branch: master
         commands:
         # deploy to AppEngine
-        - gcloud -q preview app deploy app.yaml --promote --version=1
+        - gcloud app deploy app.yaml --promote 
         # Run our E2E Test
 	#- python e2e_test.py
