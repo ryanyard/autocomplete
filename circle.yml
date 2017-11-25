@@ -40,7 +40,7 @@ dependencies:
     #- python test_main.py
 
 deployment:
-    staging:
+    production:
         branch: master
         commands:
         # deploy to AppEngine
