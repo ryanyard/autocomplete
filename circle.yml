@@ -34,10 +34,10 @@ dependencies:
     # Replace <your-project-id>
     - gcloud config set project $GCLOUD_PROJECT
 
-test:
-  override:
-    # run local unit tests
-    - python test_main.py
+#test:
+  #override:
+    ## run local unit tests
+    #- python test_main.py
 
 deployment:
     staging:
@@ -46,4 +46,4 @@ deployment:
         # deploy to AppEngine
         - gcloud -q preview app deploy app.yaml --promote --version=1
         # Run our E2E Test
-	- python e2e_test.py
+	#- python e2e_test.py
